@@ -33,6 +33,59 @@ Container 단위 작동이 훨씬 적은 리소스로 가볍게 작동한다.
 
 <br /><br /><br />
 
+* 발전 배경
+---
+
+```
+
+Traditional Deployment -> Virtualized Deployment -> Container Deployment 순서로 발전
+
+```
+
+| Traditional Deployment | Virtualized Deployment | Container Deployment |
+|------------------------|------------------------|----------------------|
+| X                      | ┌ App                  | ┌ App                |
+| X                      | ├ Bin / Lib            | ├ Bin / Lib          |
+| X                      | ├ Operating System     | ├ X                  |
+| App                    | └ Virtual Machine      | └ Container          |
+| Bin / Lib              | Hypervisor             | Container Runtime    |
+| Operating System       | Operating System       | Operating System     |
+| Hardware               | Hardware               | Hardware             |
+
+<br />
+
+1. Traditional Deployment
+```
+Hardware에 Operating system(OS)이 올라가 있고,
+그 위로 App가 설치되어있다.
+서버의 자원이 남아도 효율적으로 활용하기 힘든 구조이다.
+```
+
+<br />
+
+2. Virtualized Deployment
+```
+Operating system(OS)에 가상화 기술을 사용한다.
+VM(Virtual Machine) 단위로 가상의 서버를 구현하는 구조이다.
+VM으로 완벽히 영역을 나눌 수 있지만,
+VM마다 Operating system이 필요하다.
+```
+
+<br />
+
+3. Container Deployment
+```
+Container 단위로 서버를 관리하고,
+Operating system을 공유한다.
+Docker와 같은 Container runtime을 사용한다.
+
+마지막으로 가장 큰 차이점은 위에 표에는 존재하지 않지만,
+컨테이너화된 애플리케이션의 배포, 확장 및 관리를 자동화하는
+Container orchestration engine(Kubernetes)이 존재한다는 것이다.
+```
+
+<br /><br /><br />
+
 * Docker 핵심 구성요소
 ---
 
@@ -100,19 +153,20 @@ ex) 자바로 치면 Class(Image)를 Instance 화 한 것과 비슷하다.
 
 <br /><br /><br />
 
-* 도커 기본 명령어
+* Containerizing
 ---
 
-| 명령어               | 설명                                                                                                                                                    |
-|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `docker build`       | 도커파일을 사용하여 이미지를 생성합니다.                                                                                                                   |
-| `docker pull`        | 도커 허브 또는 다른 레지스트리에서 이미지를 다운로드합니다.                                                                                                  |
-| `docker run`         | 이미지를 사용하여 새로운 컨테이너를 생성하고 실행합니다.                                                                                                  |
-| `docker ps`          | 실행 중인 컨테이너 목록을 표시합니다.                                                                                                                      |
-| `docker stop`        | 실행 중인 컨테이너를 중지합니다.                                                                                                                          |
-| `docker start`       | 중지된 컨테이너를 다시 시작합니다.                                                                                                                        |
-| `docker rm`          | 중지된 컨테이너를 삭제합니다.                                                                                                                            |
-| `docker rmi`         | 로컬에 저장된 이미지를 삭제합니다.                                                                                                                       |
-| `docker exec`        | 실행 중인 컨테이너 내에서 명령을 실행합니다.                                                                                                               |
-| `docker logs`        | 컨테이너의 로그를 확인합니다.                                                                                                                            |
-| `docker-compose`     | 여러 컨테이너를 정의하고 실행할 수 있는 도구입니다. 도커 컴포즈 파일(docker-compose.yml)을 사용하여 애플리케이션을 정의합니다.                                                                          |
+```
+컨테이너화를 해서 가장 이득인 부분이 뭘까?
+바로 Deployment이다.
+
+이전에는 개발자들에게 Code와 Dependencies를
+세팅하는 메뉴얼을 전달받고,
+DevOps 혹은 SRE들이 스크립트, 코드를 작성해서 배포를 했다.
+
+하지만 중간에 문제가 생기면,
+개발자들과 함께 문제를 해결하는데 많은 시간이 필요했다.
+
+지금은 개발자들에게 Docker image만 전달받으면 되기 때문에
+Deploy가 굉장히 쉬워지고 빨라졌다.
+```
