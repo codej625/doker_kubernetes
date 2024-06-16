@@ -94,6 +94,7 @@ Container orchestration engine(Kubernetes)이 존재한다는 것이다.
 ```
 도커 이미지를 빌드하기 위한 설정 파일이다.
 컨테이너가 어떻게 구성되어야 하는지에 대한 명령어와 설정이 포함된다.
+도커 파일을 빌드하면 도커 이미지가 된다.
 
 ex) Copy files, Install dependencies, Assets..등
 ```
@@ -103,8 +104,7 @@ ex) Copy files, Install dependencies, Assets..등
 2. 이미지(Image)
 ```
 도커 컨테이너를 실행하기 위한 파일과 설정 등을 포함한 가볍고 독립적인 패키지이다.
-이미지는 빌드할 수 있으며, 도커 허브와 같은 저장소에서 공유할 수 있다.
-불변 속성이다.
+도커 허브와 같은 저장소에서 공유할 수 있다.
 
 ex) 자바로 치면 Class와 비슷하다.
     한번 만들어진 image는 불변 상태로 존재한다.
