@@ -39,7 +39,7 @@ Traditional Deployment -> Virtualized Deployment -> Container Deployment 순서�
 
 1. Traditional Deployment
 ```
-Hardware에 Operating System(OS)이 올라가 있고,
+Hardware에 Operating system(OS)이 올라가 있고,
 그 위로 App가 설치되어있다.
 서버의 자원이 남아도 효율적으로 활용하기 힘든 구조이다.
 ```
@@ -48,10 +48,10 @@ Hardware에 Operating System(OS)이 올라가 있고,
 
 2. Virtualized Deployment
 ```
-Operating System(OS)에 가상화 기술을 사용한다.
+Operating system(OS)에 가상화 기술을 사용한다.
 VM(Virtual Machine) 단위로 가상의 서버를 구현하는 구조이다.
 VM으로 완벽히 영역을 나눌 수 있지만,
-VM마다 Operating System이 필요하다.
+VM마다 Operating system이 필요하다.
 ```
 
 <br />
@@ -59,6 +59,10 @@ VM마다 Operating System이 필요하다.
 3. Container Deployment
 ```
 Container 단위로 서버를 관리하고,
-Operating System을 공유한다.
-Docker와 같은 Container Runtime을 사용한다.
+Operating system을 공유한다.
+Docker와 같은 Container runtime을 사용한다.
+
+마지막으로 가장 큰 차이점은 위에 표에는 존재하지 않지만,
+컨테이너화된 애플리케이션의 배포, 확장 및 관리를 자동화하는
+Orchestration engine(Kubernetes)이 존재한다는 것이다.
 ```
