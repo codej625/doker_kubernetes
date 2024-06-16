@@ -64,5 +64,5 @@ Docker와 같은 Container runtime을 사용한다.
 
 마지막으로 가장 큰 차이점은 위에 표에는 존재하지 않지만,
 컨테이너화된 애플리케이션의 배포, 확장 및 관리를 자동화하는
-Orchestration engine(Kubernetes)이 존재한다는 것이다.
+Container orchestration engine(Kubernetes)이 존재한다는 것이다.
 ```
